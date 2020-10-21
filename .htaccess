@@ -1,0 +1,8 @@
+# Následující blok je použití modu rewrite pro přepis URL
+RewriteEngine On
+# RewriteCond %{HTTP_HOST} ^adresa.cz$ [NC]
+# RewriteRule ^(.*)$ http://www.adresa.cz/$1 [R=301,L]
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule . /testapp/index.php [L]
