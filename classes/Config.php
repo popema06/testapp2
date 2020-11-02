@@ -12,6 +12,8 @@ namespace classes;
 class Config
 {
 
+    public const APP_BASE_URL = 'http://localhost/testapp';
+
     /**
      * Oznaceni vychozi slozky projektu na lokalu
      */
@@ -23,6 +25,13 @@ class Config
     public const CONTROLLER_NAME = 'controller';
 
 
+
+    public const DEFAULT_CONTROLLER = 'Default';
+
+
+    public const DEFAULT_TITLE = 'Testovací aplikace';
+
+
     /**
      * Maska nasi URL
      * @var string[]
@@ -31,6 +40,20 @@ class Config
         self::CONTROLLER_NAME,
         'action',
         'id'
+    ];
+
+
+    public static $menuItems = [
+        'default' => 'Úvod',
+        'register' => 'Registrace'
+    ];
+
+
+    public static $dbParams = [
+        'host' => 'localhost',
+        'user' => 'root',
+        'pass' => 'root1234',
+        'db' => 'test'
     ];
 
 
