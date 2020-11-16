@@ -27,13 +27,18 @@ spl_autoload_register(static function ($class) {
 // https://www.itnetwork.cz/php/oop/php-tutorial-uvod-do-objektove-orientovaneho-programovani
 // Inicialialilzace objektu třídy request
 $request = new \classes\Request();
-Debugger::barDump($request->getUrlPart(\classes\Config::CONTROLLER_NAME), \classes\Config::CONTROLLER_NAME);
+
+$controllerName = $request->getUrlPart(\classes\Config::CONTROLLER_NAME);
 
 
-// Vložení datového souboru
-// Ten obsahuje i vložení hlavičky (inc/head.php)
-require_once 'data/default.php';
+if (!$controllerName) {
+    $controllerName = \classes\Config::DEFAULT_CONTROLLER;
+}
+$controllerName = ucfirst($controllerName);
+Debugger::barDump($controllerName, 'controllerName');
 
+$controllerWithNS = '\\classes\\controllers\\'.$controllerName.'Controller';
+Debugger::barDump($controllerWithNS);
 
-// Vložení patičky
-require_once 'inc/bottom.php';
+//Předání řízení Controllers
+$controller = new $controllerWithNS($request);

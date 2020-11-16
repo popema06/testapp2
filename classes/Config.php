@@ -33,8 +33,15 @@ class Config
      */
     public const DEFAULT_TITLE = 'Testovací aplikace';
 
+    /**
+     * Výchozí controller aplikace
+     */
+    public const DEFAULT_CONTROLLER = 'Default';
+
+    public const DEFAULT_ACTION = 'default';
 
     /**
+     * http://localhost/testapp/controller/action/id
      * Maska nasi URL
      * @var string[]
      */
